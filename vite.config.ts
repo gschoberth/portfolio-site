@@ -6,10 +6,7 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    VueDevTools(),
-  ],
+  plugins: [vue(), VueDevTools()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -26,8 +23,9 @@ export default defineConfig({
           @import './src/assets/scss/_variables.scss';
           @import './src/assets/scss/_mixins.scss';
           @import './src/assets/scss/_functions.scss';
-        `,
-      },
-    },
-  },
+          @import './src/assets/scss/_base.scss';
+        `
+      }
+    }
+  }
 })

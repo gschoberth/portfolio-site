@@ -1,85 +1,69 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import { onMounted, ref } from 'vue'
+
+const navLeft = ref(null)
+const navRight = ref(null)
+const pageContent = ref(null)
+
+onMounted(() => {
+  const lWidth = navLeft.value ? navLeft.value.offsetWidth : 0
+  const rWidth = navRight.value ? navRight.value.offsetWidth : 0
+
+  pageContent.value.style.setProperty(`--leftPadding`, lWidth)
+  pageContent.value.style.setProperty(`--rightPadding`, rWidth)
+})
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <nav class="nav">
+    <div class="navbar navbar-left" ref="navLeft"></div>
+    <div class="navbar navbar-right" ref="navRight"></div>
+  </nav>
+  <div class="page-content" ref="pageContent"></div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<style lang="scss">
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eceaed;
+  min-width: 100dvw;
+  min-height: 100dvh;
+  position: relative;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+.nav {
+  min-width: 100%;
+  min-height: 100svh;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 2.5rem 0;
+  box-sizing: border-box;
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
+  .navbar {
+    display: block;
+    width: 120px;
+    box-sizing: border-box;
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
+    &-left {
+      border-right: 1px solid black;
+    }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    &-right {
+      border-left: 1px solid black;
+    }
   }
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.page-content {
+  position: static;
+  min-height: 100vh;
+  padding-left: calc(var(--leftPadding) * 1px);
+  padding-right: calc(var(--rightPadding) * 1px);
 }
 </style>

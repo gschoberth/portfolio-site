@@ -1,0 +1,19 @@
+.main-layer {
+  position: relative;
+}
+
+.container {
+  overflow: hidden;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  height: 100dvh;
+  display: block;
+}
