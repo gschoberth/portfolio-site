@@ -1,22 +1,24 @@
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from 'node:url';
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import VueDevTools from 'vite-plugin-vue-devtools'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import VueDevTools from 'vite-plugin-vue-devtools';
+import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), VueDevTools()],
+  plugins: [vue(), VueDevTools(), svgr()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
   css: {
     devSourcemap: true,
     preprocessorOptions: {
       scss: {
         additionalData: `
+          @use 'sass:list';
           @use 'sass:math';
           @use 'sass:color';
           @use 'sass:map';
@@ -24,8 +26,8 @@ export default defineConfig({
           @import './src/assets/scss/_mixins.scss';
           @import './src/assets/scss/_functions.scss';
           @import './src/assets/scss/_base.scss';
-        `
-      }
-    }
-  }
-})
+        `,
+      },
+    },
+  },
+});

@@ -1,19 +1,47 @@
-.main-layer {
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Jost:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  min-height: 100%;
   position: relative;
+  color: $primary-color;
+  // overflow: hidden;
 }
 
-.container {
-  overflow: hidden;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+body {
+  display: flex;
+  flex-direction: column;
 }
 
-.hero {
-  position: relative;
-  overflow: hidden;
+a {
+  color: white;
+  text-decoration: none;
+
+  &:visited {
+    color: white;
+  }
 }
 
-.hero-content {
-  height: 100dvh;
-  display: block;
-}
+// .main-layer {
+//   position: relative;
+// }
+
+// .container {
+//   overflow: hidden;
+//   padding-left: 0 !important;
+//   padding-right: 0 !important;
+// }
+
+// .hero {
+//   position: relative;
+//   overflow: hidden;
+// }
+
+// .hero-content {
+//   height: 100dvh;
+//   display: block;
+// }

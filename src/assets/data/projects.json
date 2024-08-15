@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Google CES 2023",
+    "careertitle": "Sr. Developer",
+    "company": "24G",
+    "code": "ces2023",
+    "tech": ["vue", "sass", "node", "android"],
+    "enabled": true
+  },
+  {
+    "title": "JetBlue SOAR With Reading",
+    "careertitle": "Developer",
+    "company": "24G",
+    "code": "jetblue",
+    "tech": ["vue", "sass", "node"],
+    "enabled": true
+  }
+]
