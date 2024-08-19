@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
@@ -38,11 +38,12 @@ import { RouterLink } from 'vue-router'
   left: 50%;
   transform: translate(-50%);
   transition: all 0.25s ease;
-  width: 32px;
-  aspect-ratio: 1;
+  width: 48px;
+  height: auto;
 
   & img {
     width: 100%;
+    height: auto;
   }
 }
 
